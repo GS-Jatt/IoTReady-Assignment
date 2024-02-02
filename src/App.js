@@ -1,16 +1,19 @@
 import './App.css';
-import React , {useState, useEffect} from 'react';
+import React , {useState, useEffect, useMemo} from 'react';
 import Dexie from "dexie";
 
 const App = () => {
+const db =useMemo(()=>{
 
   const db = new Dexie("AudioDB");
   db.version(1).stores({
     audios: "name, file"
   })
   db.open().catch((err) => {
-      console.log(err.stack || err)
+    console.log(err.stack || err)
   })
+},[]
+)
 
   const [audioName, setName] = useState("");
   const [audioFile, setFile] = useState("");
@@ -47,7 +50,7 @@ const App = () => {
       }
       getAudios();
 
-  }, [])
+  }, [db])
 
   let audioData;
 
