@@ -1,9 +1,9 @@
 import './App.css';
-import React , {useState, useEffect, useMemo} from 'react';
+import React , {useState, useEffect} from 'react';
 import Dexie from "dexie";
 
 const App = () => {
-const db =useMemo(()=>db = new Dexie("AudioDB"),[])
+let db =new Dexie("AudioDB")
 
   db.version(1).stores({
     audios: "name, file"
