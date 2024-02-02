@@ -37,6 +37,7 @@ let db =new Dexie("AudioDB")
               let allAudios = await db.audios.toArray();
               setAudios(allAudios);
           });
+          e.target.reset();
           
       }
   }
