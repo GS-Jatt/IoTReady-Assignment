@@ -4,16 +4,16 @@ import Dexie from "dexie";
 
 const App = () => {
 const db =useMemo(()=>{
+  const db = new Dexie("AudioDB")
+},[])
 
-  const db = new Dexie("AudioDB");
   db.version(1).stores({
     audios: "name, file"
   })
   db.open().catch((err) => {
     console.log(err.stack || err)
   })
-},[]
-)
+
 
   const [audioName, setName] = useState("");
   const [audioFile, setFile] = useState("");
