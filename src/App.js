@@ -3,9 +3,7 @@ import React , {useState, useEffect, useMemo} from 'react';
 import Dexie from "dexie";
 
 const App = () => {
-const db =useMemo(()=>{
-  const db = new Dexie("AudioDB")
-},[])
+const db =useMemo(()=>db = new Dexie("AudioDB"),[])
 
   db.version(1).stores({
     audios: "name, file"
